@@ -14,8 +14,10 @@ fills that gap with the current LTS line.
 
 ## Deploy
 
-1. Deploy the template from the Railway marketplace (search
-   "MySQL 9.7 LTS").
+- Template page: https://railway.com/deploy/mysql-97-lts
+- Source: https://github.com/AdeelAhmedKhan/mysql-starter-railway
+
+1. Deploy the template from the marketplace page above.
 2. Save the generated root password shown once at deploy time.
 3. Connect from another service in the same project with MYSQL_URL,
    or from outside with a TCP proxy.
