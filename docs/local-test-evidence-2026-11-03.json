@@ -1,0 +1,14 @@
+{
+  "template": "MySQL 9.7 LTS",
+  "image": "mysql:9.7.4",
+  "date": "2026-11-03",
+  "version": "9.7.4",
+  "checks": {
+    "version_is_9.7.4": true,
+    "authenticated_roundtrip": true,
+    "unauthenticated_rejected": true,
+    "wrong_password_rejected": true,
+    "restart_persistence": true
+  },
+  "still_untested": ["Live Railway deploy"]
+}
