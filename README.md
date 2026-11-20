@@ -79,6 +79,13 @@ caching_sha2_password.
   matches its feature set — start command flags, default
   `railway` database, volume, private networking, restart
   policy — with the version as the deliberate difference.
+  After the alignment, a second fresh deploy of the updated
+  template proved the parity on the running server itself:
+  the `railway` database existed at first start,
+  performance_schema, log_bin, and innodb_use_native_aio all
+  read OFF, innodb_buffer_pool_size read exactly 1G, and a
+  round trip inside the `railway` database passed. That test
+  project was also deleted afterwards.
 
 ## Not included
 
