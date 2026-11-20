@@ -37,13 +37,19 @@ fills that gap with the current LTS line.
 - Port: 3306, private networking only (no public networking)
 - Volume: /var/lib/mysql
 - Restart: ON_FAILURE
-- Start command: docker-entrypoint.sh mysqld (the image default)
+- Start command: `docker-entrypoint.sh mysqld
+  --innodb-use-native-aio=0 --disable-log-bin
+  --performance_schema=0 --innodb-buffer-pool-size=1G` — the same
+  resource saving flags the official Railway MySQL template
+  uses (verified against a study deploy of it, 2026-11-20).
 
 ## Variables
 
 - MYSQL_ROOT_PASSWORD: generated at deploy time. The root account.
   Never commit a real value.
-- MYSQL_DATABASE: optional. Created on first start when set.
+- MYSQL_DATABASE: `railway`. Created on first start. (Before
+  2026-11-20 this shipped empty, so no default database was
+  created; it now matches the official Railway MySQL template.)
 - MYSQL_USER / MYSQL_PASSWORD: optional app user, created on first
   start only when both are set.
 - MYSQL_URL, MYSQLHOST, MYSQLPORT, MYSQLUSER, MYSQLPASSWORD,
@@ -63,8 +69,16 @@ caching_sha2_password.
   connection, table round-trip, unauthenticated rejection, wrong
   password rejection, restart persistence. See
   docs/local-test-2026-11-03.md.
-- Live Railway deploy: NOT tested. That stays untested until a paid
-  Railway plan is active, and this section is updated when it passes.
+- Live verified on Railway 2026-11-20: a fresh deploy of this
+  template was checked end to end over a TCP proxy — MySQL
+  9.7.4 ready for connections, authenticated round trip, wrong
+  password rejected, and data intact after a service redeploy
+  on the same volume. The test project was deleted afterwards.
+  The same day, a study deploy of the official Railway MySQL
+  template (mysql:8, currently 8.4.13) confirmed this template
+  matches its feature set — start command flags, default
+  `railway` database, volume, private networking, restart
+  policy — with the version as the deliberate difference.
 
 ## Not included
 

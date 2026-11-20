@@ -1,9 +1,10 @@
 services:
   mysql:
     image: mysql:9.7.4
+    command: mysqld --innodb-use-native-aio=0 --disable-log-bin --performance_schema=0 --innodb-buffer-pool-size=1G
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env before starting}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-railway}
       MYSQL_USER: ${MYSQL_USER:-}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-}
     ports:
