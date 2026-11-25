@@ -32,7 +32,7 @@ fills that gap with the current LTS line.
 
 ## Exact Composer settings
 
-- Image: mysql:9.7.4
+- Image: `mysql:9.7.4` pinned by digest (`mysql:9.7.4@sha256:c1bd2dbe9bbe17691b380547e2a804e853692a38434b9a7d994fc03c226a359d`, added 2026-11-25; the version is unchanged, 9.7.4 is still the newest 9.7 patch)
 - Type: database
 - Port: 3306, private networking only (no public networking)
 - Volume: /var/lib/mysql

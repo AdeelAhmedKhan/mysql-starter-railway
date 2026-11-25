@@ -14,7 +14,7 @@
             "healthcheck": {
                 "note": "Database services have no HTTP healthcheck path. Health is proven by an authenticated mysqladmin ping / mysql client connection, as in scripts/local-test.sh \u2014 not by process liveness alone."
             },
-            "image": "mysql:9.7.4",
+            "image": "mysql:9.7.4@sha256:c1bd2dbe9bbe17691b380547e2a804e853692a38434b9a7d994fc03c226a359d",
             "name": "MySQL",
             "publicNetworking": false,
             "restartPolicy": "ON_FAILURE",

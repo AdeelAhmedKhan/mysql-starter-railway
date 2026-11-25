@@ -5,7 +5,7 @@ not an app. Keep it minimal, pinned, and honest.
 
 ## Stack (pinned — do not bump majors casually)
 
-- MySQL **9.7.4**, official `mysql:9.7.4` image. 9.7 is the current
+- MySQL **9.7.4**, official `mysql:9.7.4` image, pinned by digest (`mysql:9.7.4@sha256:c1bd2dbe9bbe17691b380547e2a804e853692a38434b9a7d994fc03c226a359d`). 9.7 is the current
   LTS line (GA 21 Apr 2026). Never pin an innovation release
   (9.0–9.6 are short lived; 9.6 is already deprecated and
   unavailable) and never pin `mysql:latest` or `mysql:9` — a moving
